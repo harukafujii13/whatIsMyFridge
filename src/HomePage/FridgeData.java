@@ -10,7 +10,7 @@ public class FridgeData {
     private StringProperty name;
     private StringProperty department;
 
-    public EmployeeData(String id, String name, String department) {
+    public FridgeData(String id, String name, String department) {
         this.id = new SimpleStringProperty(id);
         this.name = new SimpleStringProperty(name);
         this.department = new SimpleStringProperty(department);

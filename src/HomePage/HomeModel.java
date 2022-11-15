@@ -3,6 +3,7 @@ package HomePage;
 
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,7 +15,7 @@ import javafx.collections.ObservableList;
 public class HomeModel {
     
     Connection conn = null;
-    private ObservableList<FridgeData> employeeData;
+    private ObservableList<FridgeData> fridgeData;
 
     public HomeModel(){
         this.conn = dbConnection.getConnection();
@@ -24,25 +25,28 @@ public class HomeModel {
         }
     }
 
-    public ObservableList<FridgeData> getEmployees(){
-        String query = "SELECT * FROM employees_tbl";
+    public ObservableList<FridgeData> getfridgeData(){
+        String query = "SELECT * FROM fridge_tbl";
 
         try {
-            this.employeeData = FXCollections.observableArrayList();
+            this.fridgeData = FXCollections.observableArrayList();
 
             ResultSet resultSet = conn.createStatement().executeQuery(query);
 
             // id | createAt | name | department
 
             while(resultSet.next()){
-                this.employeeData.add( new FridgeData(
+                this.fridgeData.add( new FridgeData(
                     resultSet.getString(1),
-                    resultSet.getString(3),
-                    resultSet.getString(4)
+                    resultSet.getString(2),
+                    resultSet.getInt(3),
+                    resultSet.getDate(4),
+                    resultSet.getString(5)
+
                 ));
             }
 
-            return employeeData;
+            return fridgeData;
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -52,15 +56,18 @@ public class HomeModel {
         
     }
 
-    public void addEmployee(String name, String department){
-        String query = "INSERT INTO employees_tbl (name, department) VALUES (?, ?)";
+    public void addItem(String name, Integer number,Date EXP, String location ){
+        String query = "INSERT INTO fridge_tbl (name, department) VALUES (?, ?, ?, ?)";
         PreparedStatement statement = null;
 
         try {
             statement = conn.prepareStatement(query);
 
             statement.setString(1, name);
-            statement.setString(2, department);
+            statement.setInt(2, number);
+            ((Object) statement).setEXP(3, EXP);
+            statement.setString(4, location);
+           
 
             statement.executeQuery();
 

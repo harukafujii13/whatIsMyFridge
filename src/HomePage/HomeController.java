@@ -51,13 +51,13 @@ public class HomeController implements Initializable{
         this.nameColumn.setCellValueFactory( new PropertyValueFactory<FridgeData, String>("name"));
         this.departmentColumn.setCellValueFactory( new PropertyValueFactory<FridgeData, String>("department"));
 
-        this.FridgeDataTableView.setItems(homeModel.getEmployees());
+        this.FridgeDataTableView.setItems(homeModel.getfridgeData());
     }
 
     //add employee
     @FXML
-    private void addEmployee(ActionEvent event){
-        homeModel.addEmployee(this.name.getText(), this.department.getText());
+    private void additem(ActionEvent event){
+        homeModel.addItem(this.name.getText(), this.department.getText());
         this.loadFridgeData();
         this.clearFields(null);
     }

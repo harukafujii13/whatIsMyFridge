@@ -7,6 +7,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 import dbUtil.dbConnection;
 import javafx.collections.FXCollections;
@@ -40,7 +41,7 @@ public class HomeModel {
                     resultSet.getString(1),
                     resultSet.getString(2),
                     resultSet.getInt(3),
-                    resultSet.getDate(4),
+                    resultSet.getValue(4),
                     resultSet.getString(5)
 
                 ));
@@ -56,8 +57,8 @@ public class HomeModel {
         
     }
 
-    public void addItem(String name, Integer number,Date EXP, String location ){
-        String query = "INSERT INTO fridge_tbl (name, department) VALUES (?, ?, ?, ?)";
+    public void addItem(String name, Integer number,LocalDate EXP, String location ){
+        String query = "INSERT INTO fridge_tbl (name, number, EXP,location) VALUES (?, ?, ?, ?)";
         PreparedStatement statement = null;
 
         try {
@@ -65,7 +66,7 @@ public class HomeModel {
 
             statement.setString(1, name);
             statement.setInt(2, number);
-            ((Object) statement).setEXP(3, EXP);
+           statement.setValue(3, EXP);
             statement.setString(4, location);
            
 

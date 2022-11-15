@@ -1,6 +1,7 @@
 package HomePage;
 
-import java.sql.Date;
+
+import java.time.LocalDate;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
@@ -14,14 +15,14 @@ public class FridgeData {
     private StringProperty id;
     private StringProperty name;
     private IntegerProperty number;
-    private ObjectProperty<Date> EXP;
+    private ObjectProperty<LocalDate> EXP;
     private StringProperty location;
 
-    public FridgeData(String id, String name, Integer number, Date EXP, String location) {
+    public FridgeData(String id, String name, Integer number, int i, String location) {
         this.id = new SimpleStringProperty(id);
         this.name = new SimpleStringProperty(name);
         this.number = new SimpleIntegerProperty(number);
-        this.EXP=new SimpleObjectProperty<Date>(EXP);
+        this.EXP=new SimpleObjectProperty<LocalDate>(i);
         this.location=new SimpleStringProperty(location);
     }
 
@@ -50,11 +51,11 @@ public class FridgeData {
         this.number = number;
     }
 
-    public ObjectProperty<Date> getEXP() {
+    public ObjectProperty<LocalDate> getEXP() {
         return EXP;
     }
 
-    public void setEXP(ObjectProperty<Date> eXP) {
+    public void setEXP(ObjectProperty<LocalDate> eXP) {
         EXP = eXP;
     }
 

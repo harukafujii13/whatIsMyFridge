@@ -22,13 +22,15 @@ public class HomeController implements Initializable{
     @FXML
     private TextField name;
     @FXML
-    private TextField number;
+    private ChoiceBox<Integer> quantity;
     @FXML
-    private DatePicker EXP;
+    private DatePicker exp;
     @FXML
-    private ChoiceBox location;
+    private ChoiceBox<String> placement;
 
-    
+    private String[] locations={"Fridge","Freezer","Vegetable compartment", "Pantry"};
+
+    private Integer[] quantitys={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
     @FXML
     private TableView<FridgeData> FridgeDataTableView;
     @FXML
@@ -36,11 +38,13 @@ public class HomeController implements Initializable{
     @FXML
     private TableColumn<FridgeData, String> nameColumn;
     @FXML
-    private TableColumn<FridgeData, Integer> numberColumn;
+    private TableColumn<FridgeData, Integer> quantityColumn;
     @FXML
-    private TableColumn<FridgeData, LocalDate> EXPColumn;
+    private TableColumn<FridgeData, LocalDate> expColumn;
     @FXML
-    private TableColumn<FridgeData, String> locationColumn;
+    private TableColumn<FridgeData, String> placementColumn;
+    
+    
 
     @FXML
     private Button addEntryBtn;
@@ -53,7 +57,9 @@ public class HomeController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.homeModel = new HomeModel();
-        this.loadFridgeData();        
+        // this.loadFridgeData();    
+        placement.getItems().addAll(locations); 
+        quantity.getItems().addAll(quantitys);
     }
 
     //load data
@@ -62,9 +68,10 @@ public class HomeController implements Initializable{
 
         this.idColumn.setCellValueFactory( new PropertyValueFactory<FridgeData, String>("id"));
         this.nameColumn.setCellValueFactory( new PropertyValueFactory<FridgeData, String>("name"));
-        this.numberColumn.setCellValueFactory( new PropertyValueFactory<FridgeData, Integer>("number"));
-        this.EXPColumn.setCellValueFactory( new PropertyValueFactory<FridgeData, LocalDate>("EXP"));
-        this.locationColumn.setCellValueFactory( new PropertyValueFactory<FridgeData, String>("location"));
+        this.quantityColumn.setCellValueFactory( new PropertyValueFactory<FridgeData, Integer>("number"));
+        this.expColumn.setCellValueFactory( new PropertyValueFactory<FridgeData, LocalDate>("exp"));
+        this.placementColumn.setCellValueFactory( new PropertyValueFactory<FridgeData, String>("placement"));
+        
         
         this.FridgeDataTableView.setItems(homeModel.getfridgeData());
     }
@@ -72,22 +79,22 @@ public class HomeController implements Initializable{
     //add employee
     @FXML
     private void additem(ActionEvent event){
-        homeModel.addItem(this.name.getText(), this.number.getText(), this.EXP.getValue(),this.location.getValue());
+        homeModel.addItem(this.name.getText(), this.quantity.getValue(), this.exp.getValue(),this.placement.getValue());
         this.loadFridgeData();
         this.clearFields(null);
     }
 
-    //update employee
+    //update 
     
-    //delete employee
+    //delete
 
     //clear fields
     @FXML
     private void clearFields(ActionEvent event){
         this.name.setText("");
-        this.number.setText("");
-        this.EXP.setValue(null);
-        this.location.setValue(event);
+        this.quantity.setValue(null);
+        this.exp.setValue(null);
+        this.placement.setValue(null);
     }
 
 }

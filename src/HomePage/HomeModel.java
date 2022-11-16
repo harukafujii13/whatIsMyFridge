@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import dbUtil.dbConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.DatePicker;
 
 public class HomeModel {
     
@@ -41,7 +42,7 @@ public class HomeModel {
                     resultSet.getString(1),
                     resultSet.getString(2),
                     resultSet.getInt(3),
-                    resultSet.getValue(4),
+                    (LocalDate) resultSet.getObject(4),
                     resultSet.getString(5)
 
                 ));
@@ -57,17 +58,18 @@ public class HomeModel {
         
     }
 
-    public void addItem(String name, Integer number,LocalDate EXP, String location ){
-        String query = "INSERT INTO fridge_tbl (name, number, EXP,location) VALUES (?, ?, ?, ?)";
+    //add item method
+    public void addItem(String name, Integer quantity,LocalDate exp, String placement ){
+        String query = "INSERT INTO fridge_tbl (name, quantity, exp,placement) VALUES (?, ?, ?, ?)";
         PreparedStatement statement = null;
 
         try {
             statement = conn.prepareStatement(query);
 
             statement.setString(1, name);
-            statement.setInt(2, number);
-           statement.setValue(3, EXP);
-            statement.setString(4, location);
+            statement.setInt(2, quantity);
+            statement.setObject(3,exp);
+            statement.setString(4, placement);
            
 
             statement.executeQuery();

@@ -14,16 +14,16 @@ public class FridgeData {
     
     private StringProperty id;
     private StringProperty name;
-    private IntegerProperty number;
-    private ObjectProperty<LocalDate> EXP;
-    private StringProperty location;
+    private IntegerProperty quantity;
+    private ObjectProperty<LocalDate> exp;
+    private StringProperty placement;
 
-    public FridgeData(String id, String name, Integer number, int i, String location) {
+    public FridgeData(String id, String name, Integer quantity, LocalDate exp, String placement) {
         this.id = new SimpleStringProperty(id);
         this.name = new SimpleStringProperty(name);
-        this.number = new SimpleIntegerProperty(number);
-        this.EXP=new SimpleObjectProperty<LocalDate>(i);
-        this.location=new SimpleStringProperty(location);
+        this.quantity = new SimpleIntegerProperty(quantity);
+        this.exp=new SimpleObjectProperty<LocalDate>(exp);
+        this.placement=new SimpleStringProperty(placement);
     }
 
     public StringProperty idProperty() {
@@ -44,27 +44,27 @@ public class FridgeData {
 
     
     public IntegerProperty getNumber() {
-        return number;
+        return quantity;
     }
 
-    public void setNumber(IntegerProperty number) {
-        this.number = number;
+    public void setNumber(IntegerProperty quantity) {
+        this.quantity = quantity;
     }
 
     public ObjectProperty<LocalDate> getEXP() {
-        return EXP;
+        return exp;
     }
 
-    public void setEXP(ObjectProperty<LocalDate> eXP) {
-        EXP = eXP;
+    public void setEXP(ObjectProperty<LocalDate> exp) {
+        this.exp = exp;
     }
 
-    public StringProperty getLocation() {
-        return location;
+    public StringProperty getPlacement() {
+        return placement;
     }
 
-    public void setLocation(StringProperty location) {
-        this.location = location;
+    public void setPlacement(StringProperty placement) {
+        this.placement = placement;
     }
     
 }

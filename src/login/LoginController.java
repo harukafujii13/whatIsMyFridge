@@ -79,11 +79,28 @@ public class LoginController implements Initializable{
         this.clearFields(null);
     }
 
+    public void signUpPage(){
+
+        Stage homeStage = new Stage();
+        try {
+            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/signup/SignUp.fxml")));
+
+            homeStage.setScene(scene);
+            homeStage.setTitle("Sign Up Page");
+            homeStage.setResizable(false);
+            homeStage.show();
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML
     private void clearFields(ActionEvent event){
         this.username.setText("");
         this.password.setText("");
     }
     
+
 }
 

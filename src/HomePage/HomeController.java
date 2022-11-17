@@ -27,6 +27,7 @@ import javafx.scene.layout.GridPane;
 
 public class HomeController implements Initializable{
     
+    private String editIdString;
     TextField editName = new TextField();
     ChoiceBox<Integer> editQuantity = new ChoiceBox<Integer>();
     DatePicker editExp =new DatePicker();
@@ -41,12 +42,14 @@ public class HomeController implements Initializable{
     @FXML
     private ChoiceBox<String> placement;
 
-    private String[] locations={"Fridge","Freezer","Vegetable compartment", "Pantry"};
+    private String[] locations={"Fridge","Freezer","Crisper","Door Pocket", "Inner Shelf","Pantry"};
 
     private Integer[] quantities={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
     @FXML
     private TableView<FridgeData> FridgeDataTableView;
    
+    @FXML
+    private TableColumn<FridgeData, String> idColumn;
     @FXML
     private TableColumn<FridgeData, String> NameColumn;
     @FXML
@@ -101,6 +104,7 @@ public class HomeController implements Initializable{
                   editButton.setDisable(false);
   
                   
+                  editIdString=selected.idProperty().getValue();
                   editNameString = selected.nameProperty().getValue();
                   editQuantityInteger = selected.getQuantity().getValue();
                   editExpLocalDate=selected.getEXP().getValue();
@@ -113,6 +117,7 @@ public class HomeController implements Initializable{
     public void loadFridgeData(){
 
         
+        this.idColumn.setCellValueFactory(cellData -> cellData.getValue().idProperty());
         this.NameColumn.setCellValueFactory(cellData->cellData.getValue().nameProperty());
         this.QuantityColumn.setCellValueFactory(cellData -> cellData.getValue().getQuantity());
         this.EXPColumn.setCellValueFactory(cellData -> cellData.getValue().getEXP());
@@ -140,7 +145,7 @@ public class HomeController implements Initializable{
         //call the modal
         dialog.showAndWait().ifPresent(response -> {
             if(response.getButtonData().equals(ButtonData.OK_DONE)){
-                HomeModel.editItem(editName.getText(), editQuantity.getValue(), editExp.getValue(), editPlacement.getValue());
+                homeModel.editItem(editIdString,editName.getText(), editQuantity.getValue(), editExp.getValue(), editPlacement.getValue());
                 this.loadFridgeData();
             }
         });
@@ -155,7 +160,7 @@ public class HomeController implements Initializable{
        //locally remove
        FridgeDataTableView.getItems().remove(selectedItem);
        //delete from DB
-       homeModel.deleteitem(selectedItem.nameProperty().getValue());
+       homeModel.deleteitem(selectedItem.idProperty().getValue());
 
     }
 

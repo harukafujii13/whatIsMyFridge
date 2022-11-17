@@ -85,9 +85,9 @@ public class HomeModel {
         }
     }
 
-    //edit
-    public void editItem(String name, Integer quantity, LocalDate exp, String placement){
-        String sql = "UPDATE fridge_tbl SET name=?, quantity=?, exp=?, placement=?";
+    ////////////////////edit///////////////
+    public void editItem(String id,String name, Integer quantity, LocalDate exp, String placement){
+        String sql = "UPDATE fridge_tbl SET name=?, quantity=?, exp=?, placement=? WHERE id=?";
         PreparedStatement statement = null;
 
         try {
@@ -98,6 +98,7 @@ public class HomeModel {
             statement.setInt(2, quantity);
             statement.setObject(3,exp);
             statement.setString(4, placement);
+            statement.setInt(5, Integer.parseInt(id));
            
             statement.execute();
 
@@ -113,15 +114,15 @@ public class HomeModel {
     }
 
     //delete
-    public void deleteitem(String name){
-        String sql = "DELETE FROM fridge_tbl WHERE name = ?";
+    public void deleteitem(String id){
+        String sql = "DELETE FROM fridge_tbl WHERE id = ?";
         PreparedStatement statement = null;
 
-        Connection conn = dbConnection.getConnection();
         try{
+            Connection conn = dbConnection.getConnection();
             statement = conn.prepareStatement(sql);
 
-            statement.setInt(1, Integer.parseInt(name));
+            statement.setInt(1, Integer.parseInt(id));
 
             statement.execute();
 

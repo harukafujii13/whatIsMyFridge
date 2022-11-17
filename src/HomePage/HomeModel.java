@@ -42,7 +42,7 @@ public class HomeModel {
                     resultSet.getString(1),
                     resultSet.getString(2),
                     resultSet.getInt(3),
-                    (LocalDate) resultSet.getObject(4),
+                    (resultSet.getDate(4)).toLocalDate(),
                     resultSet.getString(5)
 
                 ));

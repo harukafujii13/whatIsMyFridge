@@ -43,11 +43,11 @@ public class FridgeData {
     }
 
     
-    public IntegerProperty getNumber() {
+    public IntegerProperty getQuantity() {
         return quantity;
     }
 
-    public void setNumber(IntegerProperty quantity) {
+    public void setQuantity(IntegerProperty quantity) {
         this.quantity = quantity;
     }
 

@@ -33,16 +33,15 @@ public class HomeController implements Initializable{
     private Integer[] quantitys={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
     @FXML
     private TableView<FridgeData> FridgeDataTableView;
+   
     @FXML
-    private TableColumn<FridgeData, String> idColumn;
+    private TableColumn<FridgeData, String> NameColumn;
     @FXML
-    private TableColumn<FridgeData, String> nameColumn;
+    private TableColumn<FridgeData, Number> QuantityColumn;
     @FXML
-    private TableColumn<FridgeData, Integer> quantityColumn;
+    private TableColumn<FridgeData, LocalDate> EXPColumn;
     @FXML
-    private TableColumn<FridgeData, LocalDate> expColumn;
-    @FXML
-    private TableColumn<FridgeData, String> placementColumn;
+    private TableColumn<FridgeData, String> LocationColumn;
     
     
 
@@ -57,7 +56,7 @@ public class HomeController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.homeModel = new HomeModel();
-        // this.loadFridgeData();    
+        this.loadFridgeData();    
         placement.getItems().addAll(locations); 
         quantity.getItems().addAll(quantitys);
     }
@@ -66,11 +65,11 @@ public class HomeController implements Initializable{
     @FXML
     public void loadFridgeData(){
 
-        this.idColumn.setCellValueFactory( new PropertyValueFactory<FridgeData, String>("id"));
-        this.nameColumn.setCellValueFactory( new PropertyValueFactory<FridgeData, String>("name"));
-        this.quantityColumn.setCellValueFactory( new PropertyValueFactory<FridgeData, Integer>("number"));
-        this.expColumn.setCellValueFactory( new PropertyValueFactory<FridgeData, LocalDate>("exp"));
-        this.placementColumn.setCellValueFactory( new PropertyValueFactory<FridgeData, String>("placement"));
+        
+        this.NameColumn.setCellValueFactory(cellData->cellData.getValue().nameProperty());
+        this.QuantityColumn.setCellValueFactory(cellData -> cellData.getValue().getQuantity());
+        this.EXPColumn.setCellValueFactory(cellData -> cellData.getValue().getEXP());
+        this.LocationColumn.setCellValueFactory(cellData -> cellData.getValue().getPlacement());
         
         
         this.FridgeDataTableView.setItems(homeModel.getfridgeData());

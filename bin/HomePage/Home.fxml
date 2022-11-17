@@ -24,6 +24,6 @@
       <TextField fx:id="name" layoutX="21.0" layoutY="46.0" prefHeight="26.0" prefWidth="99.0" promptText="item name" />
       <Button fx:id="addEntryBtn" layoutX="41.0" layoutY="200.0" mnemonicParsing="false" onAction="#additem" text="Register" />
       <Button fx:id="editButton" layoutX="40.0" layoutY="235.0" mnemonicParsing="false" onAction="#editItem" prefHeight="26.0" prefWidth="62.0" text="Edit" />
-      <Button fx:id="addEntryBtn2" layoutX="40.0" layoutY="269.0" mnemonicParsing="false" onAction="#additem" prefHeight="26.0" prefWidth="62.0" text="Delete" />
+      <Button fx:id="Button" layoutX="40.0" layoutY="269.0" mnemonicParsing="false" onAction="#deleteitem" prefHeight="26.0" prefWidth="62.0" text="Delete" />
    </children>
 </Pane>

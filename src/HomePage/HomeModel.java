@@ -85,8 +85,9 @@ public class HomeModel {
         }
     }
 
+    //edit
     public void editItem(String name, Integer quantity, LocalDate exp, String placement){
-        String sql = "UPDATE fridge_tbl (name, quantity, exp, placement) VALUES (?, ?, ?, ?)";
+        String sql = "UPDATE fridge_tbl SET name=?, quantity=?, exp=?, placement=?";
         PreparedStatement statement = null;
 
         try {
@@ -108,6 +109,30 @@ public class HomeModel {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    //delete
+    public void deleteitem(String name){
+        String sql = "DELETE FROM fridge_tbl WHERE name = ?";
+        PreparedStatement statement = null;
+
+        Connection conn = dbConnection.getConnection();
+        try{
+            statement = conn.prepareStatement(sql);
+
+            statement.setInt(1, Integer.parseInt(name));
+
+            statement.execute();
+
+        } catch (SQLException e) {
+        e.printStackTrace();
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } 
         }
     }
 }

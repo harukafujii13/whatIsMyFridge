@@ -84,4 +84,30 @@ public class HomeModel {
             }
         }
     }
+
+    public void editItem(String name, Integer quantity, LocalDate exp, String placement){
+        String sql = "UPDATE fridge_tbl (name, quantity, exp, placement) VALUES (?, ?, ?, ?)";
+        PreparedStatement statement = null;
+
+        try {
+            Connection conn = dbConnection.getConnection();
+            statement = conn.prepareStatement(sql);
+
+            statement.setString(1, name);
+            statement.setInt(2, quantity);
+            statement.setObject(3,exp);
+            statement.setString(4, placement);
+           
+            statement.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally{
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

@@ -9,15 +9,28 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.GridPane;
 
 public class HomeController implements Initializable{
+    
+    TextField editName = new TextField();
+    ChoiceBox<Integer> editQuantity = new ChoiceBox<Integer>();
+    DatePicker editExp =new DatePicker();
+    ChoiceBox<String> editPlacement=new ChoiceBox<String>();
     
     @FXML
     private TextField name;
@@ -49,6 +62,20 @@ public class HomeController implements Initializable{
     private Button addEntryBtn;
     @FXML
     private Button clearBtn;
+    @FXML
+    private Button deleteButton;
+    @FXML
+    private Button editButton;
+
+    Dialog<ButtonType> dialog = null;
+    Alert alert = new Alert(AlertType.NONE);
+    //instantiate a model
+    HomeModel HomeModel = null;
+
+    private String editNameString;
+    private Integer editQuantityInteger;
+    private LocalDate editExpLocalDate;
+    private String editPlacementString;
 
     //instantiate a model
     HomeModel homeModel = null;
@@ -84,6 +111,22 @@ public class HomeController implements Initializable{
     }
 
     //update 
+    @FXML
+    private void editItem(ActionEvent event){
+
+        //create modal
+        createModal();
+
+        //call the modal
+        dialog.showAndWait().ifPresent(response -> {
+            if(response.getButtonData().equals(ButtonData.OK_DONE)){
+                homeModel.editItem(editName.getText(), editQuantity.getValue(), editExp.getValue(), editPlacement.getValue());
+                this.loadFridgeData();
+            }
+        });
+    }
+
+
     
     //delete
 
@@ -96,4 +139,43 @@ public class HomeController implements Initializable{
         this.placement.setValue(null);
     }
 
+
+
+    //create a modal
+    private void createModal(){
+
+        dialog = new Dialog<ButtonType>();
+
+        dialog.setTitle("Edit an Item");
+        ButtonType editModalBtn = new ButtonType("Edit", ButtonData.OK_DONE);
+        ButtonType cancelModalBtn = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
+
+        //set the content
+        GridPane gridPane = new GridPane();
+        gridPane.setHgap(10);   
+        gridPane.setVgap(10);   
+        gridPane.setPadding(new Insets(20, 10, 10, 10));
+
+        editName.setText(editNameString);
+        editQuantity.setValue(editQuantityInteger);
+        editExp.setValue(editExpLocalDate);
+        editPlacement.setValue(editPlacementString);
+
+        gridPane.add(new Label("Name"), 0, 0);
+        gridPane.add(editName, 1, 0);
+        gridPane.add(new Label("Quantity"), 0, 1);
+        gridPane.add(editQuantity, 1, 1);
+        
+        gridPane.add(new Label("EXP"), 0, 2);
+        gridPane.add(editExp, 1, 2);
+
+        gridPane.add(new Label("Location"), 0, 3);
+        gridPane.add(editPlacement, 1, 3);
+
+
+        dialog.getDialogPane().setContent(gridPane);
+
+        dialog.getDialogPane().getButtonTypes().add(editModalBtn);
+        dialog.getDialogPane().getButtonTypes().add(cancelModalBtn);
+    }
 }

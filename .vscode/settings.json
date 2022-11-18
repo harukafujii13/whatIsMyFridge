@@ -1,0 +1,17 @@
+{
+  "java.project.sourcePaths": ["src"],
+  "java.project.outputPath": "bin",
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar",
+    "/Users/kota/Downloads/javafx-sdk-19/lib/javafx-swt.jar",
+    "/Users/kota/Downloads/javafx-sdk-19/lib/javafx.base.jar",
+    "/Users/kota/Downloads/javafx-sdk-19/lib/javafx.controls.jar",
+    "/Users/kota/Downloads/javafx-sdk-19/lib/javafx.fxml.jar",
+    "/Users/kota/Downloads/javafx-sdk-19/lib/javafx.graphics.jar",
+    "/Users/kota/Downloads/javafx-sdk-19/lib/javafx.media.jar",
+    "/Users/kota/Downloads/javafx-sdk-19/lib/javafx.swing.jar",
+    "/Users/kota/Downloads/javafx-sdk-19/lib/javafx.web.jar",
+    "/Users/kota/Downloads/postgresql-42.5.0.jar",
+    "/Users/hhs/Documents/javafx-sdk-19/lib/**/*.jar"
+  ]
+}

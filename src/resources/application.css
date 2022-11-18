@@ -1,5 +1,5 @@
 .transparent{
-  -fx-background-color: rgba(0,0,0,0);
+  -fx-background-color: #393E46;
 }
 
 .border{
@@ -12,4 +12,6 @@
   -fx-border-width:  10;
 }
 
-
+.body{
+  -fx-font-color: white;
+}

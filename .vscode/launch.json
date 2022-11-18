@@ -6,6 +6,7 @@
   "configurations": [
     {
       "type": "java",
+<<<<<<< HEAD
       "name": "Launch App",
       "request": "launch",
       "mainClass": "App",
@@ -20,6 +21,8 @@
     },
     {
       "type": "java",
+=======
+>>>>>>> 252eca7b14b043d655c139fa6dedbd0cb49899b6
       "name": "Launch Current File",
       "request": "launch",
       "mainClass": "${file}"

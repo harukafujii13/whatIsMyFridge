@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -15,5 +16,10 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();    
 
+=======
+public class App {
+    public static void main(String[] args) throws Exception {
+        System.out.println("Hello, World!");
+>>>>>>> 252eca7b14b043d655c139fa6dedbd0cb49899b6
     }
 }

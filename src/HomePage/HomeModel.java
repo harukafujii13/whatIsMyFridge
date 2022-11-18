@@ -14,7 +14,7 @@ import javafx.collections.ObservableList;
 public class HomeModel {
     
     Connection conn = null;
-    private ObservableList<EmployeeData> employeeData;
+    private ObservableList<FridgeData> employeeData;
 
     public HomeModel(){
         this.conn = dbConnection.getConnection();
@@ -24,7 +24,7 @@ public class HomeModel {
         }
     }
 
-    public ObservableList<EmployeeData> getEmployees(){
+    public ObservableList<FridgeData> getEmployees(){
         String query = "SELECT * FROM employees_tbl";
 
         try {
@@ -35,7 +35,7 @@ public class HomeModel {
             // id | createAt | name | department
 
             while(resultSet.next()){
-                this.employeeData.add( new EmployeeData(
+                this.employeeData.add( new FridgeData(
                     resultSet.getString(1),
                     resultSet.getString(3),
                     resultSet.getString(4)

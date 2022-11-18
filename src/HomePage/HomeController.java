@@ -21,13 +21,13 @@ public class HomeController implements Initializable{
     private TextField department;
     
     @FXML
-    private TableView<EmployeeData> employeeDataTableView;
+    private TableView<FridgeData> employeeDataTableView;
     @FXML
-    private TableColumn<EmployeeData, String> idColumn;
+    private TableColumn<FridgeData, String> idColumn;
     @FXML
-    private TableColumn<EmployeeData, String> nameColumn;
+    private TableColumn<FridgeData, String> nameColumn;
     @FXML
-    private TableColumn<EmployeeData, String> departmentColumn;
+    private TableColumn<FridgeData, String> departmentColumn;
 
     @FXML
     private Button addEntryBtn;
@@ -47,9 +47,9 @@ public class HomeController implements Initializable{
     @FXML
     public void loadEmployeeData(){
 
-        this.idColumn.setCellValueFactory( new PropertyValueFactory<EmployeeData, String>("id"));
-        this.nameColumn.setCellValueFactory( new PropertyValueFactory<EmployeeData, String>("name"));
-        this.departmentColumn.setCellValueFactory( new PropertyValueFactory<EmployeeData, String>("department"));
+        this.idColumn.setCellValueFactory( new PropertyValueFactory<FridgeData, String>("id"));
+        this.nameColumn.setCellValueFactory( new PropertyValueFactory<FridgeData, String>("name"));
+        this.departmentColumn.setCellValueFactory( new PropertyValueFactory<FridgeData, String>("department"));
 
         this.employeeDataTableView.setItems(homeModel.getEmployees());
     }

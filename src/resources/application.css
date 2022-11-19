@@ -1,3 +1,15 @@
+.bordertop{
+  -fx-border-color:  #21A092;
+  -fx-border-width:  10;
+}
+
+.borderfridge{
+    -fx-border-color:  #BAD3F9;
+    -fx-border-width:  10;
+}
+
+
+/* Text field */
 .transparent{
   -fx-background-color: #393E46;
 }
@@ -7,11 +19,109 @@
   -fx-border-width:  1.5;
 }
 
-.bordertop{
-  -fx-border-color:  #21A092;
-  -fx-border-width:  10;
+.TextField{
+  -fx-text-fill: #E3E4E4;
 }
 
-.body{
-  -fx-font-color: white;
+
+/* Button */
+.button{
+  -fx-font-weight: bold;
+  -fx-background-color: #21A092;
+  -fx-background-radius: 22;
+  -fx-font-size: 16;
+  -fx-text-fill: white;
+}
+
+.button:hover{
+  -fx-font-weight: bold;
+  -fx-background-color: white;
+  -fx-background-radius: 22;
+  -fx-font-size: 16;
+  -fx-text-fill: #21A092;
+  -fx-border-color: #21A092;
+  -fx-border-radius: 20;
+  -fx-border-width: 3;
+}
+
+.button:pressed{
+  -fx-font-weight: bold;
+  -fx-background-color: #21A092;
+  -fx-background-radius: 22;
+  -fx-font-size: 16;
+  -fx-text-fill: white;
+  -fx-border-color: white;
+  -fx-border-radius: 20;
+  -fx-border-width: 3;
+}
+
+/* Sign-up Button */
+#signupbutton{
+  -fx-font-weight: bold;
+  -fx-background-color:  #3E3D3C;
+  -fx-font-size: 16;
+  -fx-text-fill: white;
+  -fx-border-color: #3E3D3C;
+}
+
+#signupbutton:hover{
+  -fx-font-weight: bold;
+  -fx-background-color: #3E3D3C;
+  -fx-font-size: 16;
+  -fx-text-fill: #21A092;
+  -fx-border-color: #3E3D3C;
+}
+
+#signupbutton:pressed{
+  -fx-font-weight: bold;
+  -fx-background-color: #3E3D3C;
+  -fx-font-size: 16;
+  -fx-text-fill: white;
+  -fx-border-color: #3E3D3C;
+}
+
+
+/* Home Button */
+#homebutton{
+  -fx-font-weight: bold;
+  -fx-background-color: #e55151;
+  -fx-background-radius: 22;
+  -fx-font-size: 16;
+  -fx-text-fill: white;
+}
+
+#homebutton:hover{
+  -fx-font-weight: bold;
+  -fx-background-color: rgb(146, 63, 63);
+  -fx-background-radius: 22;
+  -fx-font-size: 16;
+  -fx-text-fill: white;
+  -fx-border-color: #923f3f;
+}
+
+#homebutton:pressed{
+  -fx-font-weight: bold;
+  -fx-background-color: rgb(229, 81, 81);
+  -fx-background-radius: 22;
+  -fx-font-size: 16;
+  -fx-text-fill: white;
+  -fx-border-color: white;
+}
+
+/* combo box */
+#combobox{
+  -fx-font-weight: bold;
+  -fx-background-color: white;
+  -fx-background-radius: 22;
+  -fx-border-radius: 22;
+  -fx-font-size: 16;
+  -fx-text-fill: #e55151;
+  -fx-border-color: #e55151;
+  -fx-border-width: 3;
+}
+
+#datepicker{
+  -fx-background-color: #e55151;
+  -fx-background-radius: 22;
+  -fx-text-fill: white;
 }

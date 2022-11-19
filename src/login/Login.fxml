@@ -16,25 +16,19 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="772.0" style="-fx-background-color: #3E3D3C;" styleClass="bordertop" stylesheets="@../resources/application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.LoginController">
    <children>
-      <Pane id="login" layoutX="404.0" layoutY="226.0" prefHeight="322.0" prefWidth="326.0" stylesheets="@../resources/css/application.css">
+      <Pane id="login" layoutX="399.0" layoutY="221.0" prefHeight="322.0" prefWidth="326.0" stylesheets="@../resources/css/application.css">
          <children>
-            <ImageView fitHeight="62.0" fitWidth="60.0" layoutX="221.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/CSS/circle.png" />
-               </image>
-            </ImageView>
-            <PasswordField fx:id="password" layoutX="75.0" layoutY="86.0" prefHeight="33.0" prefWidth="226.0" promptText="password" styleClass="transparent" stylesheets="@../resources/application.css" />
             <Label layoutX="219.0" layoutY="15.0" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="loginStatus" layoutX="151.0" layoutY="183.0" prefHeight="16.0" prefWidth="156.0" textFill="WHITE">
+            <Label fx:id="loginStatus" layoutX="156.0" layoutY="177.0" prefHeight="16.0" prefWidth="156.0" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="13.0" />
                </font>
             </Label>
-            <Button fx:id="loginBtn" cache="true" layoutX="30.0" layoutY="134.0" mnemonicParsing="false" onAction="#Login" prefHeight="40.0" prefWidth="268.0" style="-fx-background-color: #21A092;" text="Log in" textAlignment="CENTER" textFill="#f4f2f2">
+            <Button fx:id="loginBtn" cache="true" layoutX="46.0" layoutY="201.0" mnemonicParsing="false" onAction="#Login" prefHeight="40.0" prefWidth="268.0" stylesheets="@../resources/application.css" text="Log in" textAlignment="CENTER" textFill="#f4f2f2">
                <font>
                   <Font name="Gadugi Bold" size="18.0" />
                </font>
@@ -46,7 +40,7 @@
                   </DisplacementMap>
                </effect>
             </Button>
-            <Button fx:id="loginBtn1" layoutX="116.0" layoutY="282.0" mnemonicParsing="false" onAction="#signUpPage" prefHeight="40.0" prefWidth="98.0" style="-fx-background-color: #3E3D3C;" text="Sign up" textFill="#faf8f8">
+            <Button id="signupbutton" fx:id="loginBtn1" layoutX="133.0" layoutY="253.0" mnemonicParsing="false" onAction="#signUpPage" prefHeight="40.0" prefWidth="98.0" stylesheets="@../resources/application.css" text="Sign up" textFill="#faf8f8">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -54,46 +48,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <ImageView fitHeight="62.0" fitWidth="60.0" layoutX="46.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/CSS/circle.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="62.0" fitWidth="60.0" layoutX="134.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/CSS/circle.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="38.0" fitWidth="41.0" layoutX="57.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/CSS/G.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="144.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/CSS/F.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="71.0" fitWidth="41.0" layoutX="231.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/CSS/IG.png" />
-               </image>
-            </ImageView>
-            <HBox layoutX="32.0" layoutY="44.0" prefHeight="33.0" prefWidth="268.0" style="-fx-background-color: #393E46;" styleClass="border">
-               <children>
-                  <Pane prefHeight="34.0" prefWidth="38.0">
-                     <children>
-                        <ImageView fitHeight="18.0" fitWidth="26.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/CSS/username.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-                  <TextField fx:id="username" prefHeight="30.0" prefWidth="225.0" promptText="user name" styleClass="transparent" stylesheets="@../resources/application.css" />
-               </children>
-            </HBox>
-            <HBox layoutX="32.0" layoutY="87.0" prefHeight="30.0" prefWidth="268.0" styleClass="border">
+            <HBox layoutX="61.0" layoutY="146.0" prefHeight="30.0" prefWidth="239.0" styleClass="border">
                <children>
                   <Pane prefHeight="27.0" prefWidth="42.0" style="-fx-background-color: #393E46;">
                      <children>
@@ -104,8 +59,24 @@
                         </ImageView>
                      </children>
                   </Pane>
+                  <PasswordField id="TextField" fx:id="password" prefHeight="26.0" prefWidth="191.0" promptText="password" style="-fx-background-color: #393E46;" styleClass="TextField" stylesheets="@../resources/application.css" />
                </children>
             </HBox>
+            <HBox layoutX="61.0" layoutY="89.0" prefHeight="33.0" prefWidth="239.0" style="-fx-background-color: #393E46;" styleClass="border">
+               <children>
+                  <Pane prefHeight="34.0" prefWidth="38.0">
+                     <children>
+                        <ImageView fitHeight="18.0" fitWidth="26.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/CSS/username.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <TextField id="TextField" fx:id="username" prefHeight="29.0" prefWidth="196.0" promptText="user name" style="-fx-background-color: #393E46;" styleClass="TextField" stylesheets="@../resources/application.css" />
+               </children>
+            </HBox>
+            <AnchorPane layoutX="-100.0" layoutY="293.0" prefHeight="71.0" prefWidth="82.0" />
          </children>
       </Pane>
       <Label layoutX="10.0" layoutY="13.0" text="DB Status:" textFill="WHITE">
@@ -133,19 +104,29 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="95.0" fitWidth="98.0" layoutX="518.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="82.0" fitWidth="172.0" layoutX="495.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/CSS/login.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="10.0" layoutY="10.0" prefHeight="37.0" prefWidth="47.0">
+         <children>
+            <ImageView fitHeight="20.0" fitWidth="27.0" layoutX="6.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/CSS/email.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <AnchorPane layoutX="430.0" layoutY="594.0" prefHeight="58.0" prefWidth="60.0" />
+      <ImageView fitHeight="95.0" fitWidth="98.0" layoutX="525.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/CSS/account.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="57.0" fitWidth="51.0" layoutX="542.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="57.0" fitWidth="51.0" layoutX="548.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/CSS/crown.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="82.0" fitWidth="172.0" layoutX="483.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../resources/CSS/login.png" />
          </image>
       </ImageView>
    </children>

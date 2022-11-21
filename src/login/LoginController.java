@@ -77,6 +77,7 @@ public class LoginController implements Initializable{
     private void signUp(ActionEvent event){
         loginModel.addUser(this.username.getText(), this.password.getText());
         this.clearFields(null);
+        homePage();
     }
 
     public void signUpPage(){

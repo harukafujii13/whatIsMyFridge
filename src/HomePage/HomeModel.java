@@ -3,7 +3,6 @@ package HomePage;
 
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +11,7 @@ import java.time.LocalDate;
 import dbUtil.dbConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.DatePicker;
+
 
 public class HomeModel {
     
@@ -42,7 +41,7 @@ public class HomeModel {
                     resultSet.getString(1),
                     resultSet.getString(2),
                     resultSet.getInt(3),
-                    (resultSet.getDate(4)).toLocalDate(),
+                    resultSet.getDate(4).toLocalDate(),
                     resultSet.getString(5)
 
                 ));
